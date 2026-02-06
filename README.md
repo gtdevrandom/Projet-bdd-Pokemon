@@ -71,9 +71,13 @@ Le projet utilise une base de données relationnelle composée de 4 tables :
 
 ## 📂 Structure du Projet
 ```plaintext
-📁 Projet-Pokemon/
+📁 Projet-bdd-Pokemon/
 │
-├── 📄 programme.py        # Code source principal (Tkinter + SQL)
-├── 🗄️ pokedex.db          # Base de données SQLite
-├── 📁 images/             # Contient les sprites (ex: Pikachu.gif, Bulbizarre.gif)
-└── 📄 README.md           # Documentation du projet
+├── 🖥️ lanceur.bat           # Script Windows pour lancer l'application
+├── 🗄️ pokedex.db            # Base de données SQLite
+├── 📄 README.md             # Documentation (ce fichier)
+│
+└── 📁 application+base/     # Dossier contenant les ressources applicatives
+    ├── 📄 programme.py      # Code source principal (Tkinter + SQL)
+    └── 📁 images/           # Sprites des Pokémon (ex: Pikachu.gif)
+
