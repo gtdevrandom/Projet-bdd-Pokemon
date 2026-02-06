@@ -1,3 +1,4 @@
-Ajouter les pokemons manquants
-Ajouter la taille et le poids du pokemon
-Ajout de la couleur de fond en fonction du type
+Corriger les textures manquantes
+Améliorer l'interface 
+Afficher le texte du type dans sa couleur
+Ajoute des aperçu des pokemons dans la liste des pokemons
