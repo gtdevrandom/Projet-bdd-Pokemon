@@ -65,10 +65,12 @@ La base relationnelle comporte 4 tables principales :
 3. Exécutez le script principal :  
 ```bash
 python programme.py
-    ```
+```
 ---
 
 ## 📂 Structure du Projet
+Voici l'organisation exacte des fichiers du dépôt :
+
 ```plaintext
 📁 Projet-bdd-Pokemon/
 │
@@ -79,5 +81,3 @@ python programme.py
 └── 📁 application+base/     # Dossier contenant les ressources applicatives
     ├── 📄 programme.py      # Code source principal (Tkinter + SQL)
     └── 📁 images/           # Sprites des Pokémon (ex: Pikachu.gif)
-
-
