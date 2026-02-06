@@ -66,9 +66,6 @@ La base relationnelle comporte 4 tables principales :
 ```bash
 python programme.py
     ```
-
-> **Astuce :** Pour modifier ou vérifier la base de données manuellement, vous pouvez utiliser le logiciel **DB Browser for SQLite**.
-
 ---
 
 ## 📂 Structure du Projet
@@ -82,4 +79,5 @@ python programme.py
 └── 📁 application+base/     # Dossier contenant les ressources applicatives
     ├── 📄 programme.py      # Code source principal (Tkinter + SQL)
     └── 📁 images/           # Sprites des Pokémon (ex: Pikachu.gif)
+
 
