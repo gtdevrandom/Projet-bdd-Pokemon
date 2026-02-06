@@ -81,3 +81,9 @@ Voici l'organisation exacte des fichiers du dépôt :
 └── 📁 application+base/     # Dossier contenant les ressources applicatives
     ├── 📄 programme.py      # Code source principal (Tkinter + SQL)
     └── 📁 images/           # Sprites des Pokémon (ex: Pikachu.gif)
+```
+
+## 📜 Licence
+
+Ce projet est sous licence [MIT](LICENSE). Consultez le fichier `LICENSE` pour plus de détails.
+
