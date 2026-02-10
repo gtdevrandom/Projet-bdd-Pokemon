@@ -12,7 +12,7 @@ L’application utilise :
 ## 📋 Table des matières
 - [Description](#-description)  
 - [Fonctionnalités](#-fonctionnalités)  
-- [Structure de la base de données](#-structure-de-la-base-de-données)  
+- [Structure de la base de données](#-structure-de-la-base-de-donnees)  
 - [Installation et utilisation](#-installation-et-utilisation)  
 - [Structure du projet](#-structure-du-projet)  
 
@@ -39,7 +39,7 @@ L’application permet de **consulter, rechercher et filtrer des Pokémon** dans
 
 ---
 
-## 🗄️ Structure de la base de données
+## 🗄️ Structure de la base de donnees
 
 La base relationnelle comporte 4 tables principales :  
 
@@ -86,4 +86,5 @@ Voici l'organisation exacte des fichiers du dépôt :
 ## 📜 Licence
 
 Ce projet est sous licence [MIT](LICENSE). Consultez le fichier `LICENSE` pour plus de détails.
+
 
