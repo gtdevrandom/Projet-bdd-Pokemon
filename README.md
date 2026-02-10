@@ -1,4 +1,4 @@
-# 🔴 Projet BDD Pokémon – Pokedex Manager
+# Projet BDD Pokémon – Pokedex Manager
 
 Ce projet a pour objectif de **comprendre l’interaction entre Python et les bases de données SQL** à travers la création d’une interface graphique de gestion de Pokémon.
 
@@ -86,6 +86,7 @@ Voici l'organisation exacte des fichiers du dépôt :
 ## 📜 Licence
 
 Ce projet est sous licence [MIT](LICENSE). Consultez le fichier `LICENSE` pour plus de détails.
+
 
 
 
