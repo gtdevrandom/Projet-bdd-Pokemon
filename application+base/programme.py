@@ -118,8 +118,33 @@ def AffichezListePokemon():
     
     sqliteConnection = connexion()
     cursor = sqliteConnection.cursor()
-    #ecriture de la requéte
-    sqlite_select_Query = "SELECT idPokemon,nom,HP,libelle_type FROM pokemon INNER JOIN type  ON type.idType = pokemon.idType WHERE nom LIKE '%" + var_texte_recherche.get() + "%' OR libelle_type LIKE '%" + var_texte_recherche.get() + "%';"
+    
+    # Récupération des critères de filtrage
+    recherche_texte = var_texte_recherche.get()
+    filtrer_hp = var_filtre_hp.get()
+    filtrer_route = var_filtre_route.get()
+    
+    # Construction de la requête avec filtres dynamiques
+    sqlite_select_Query = "SELECT idPokemon,nom,HP,route,libelle_type FROM pokemon INNER JOIN type ON type.idType = pokemon.idType WHERE 1=1"
+    
+    # Ajouter filtre texte (nom/type)
+    if recherche_texte:
+        sqlite_select_Query += " AND (nom LIKE '%" + recherche_texte + "%' OR libelle_type LIKE '%" + recherche_texte + "%')"
+    
+    # Ajouter filtre HP
+    if filtrer_hp:
+        try:
+            hp_value = int(filtrer_hp)
+            sqlite_select_Query += " AND HP >= " + str(hp_value)
+        except ValueError:
+            pass
+    
+    # Ajouter filtre Route
+    if filtrer_route:
+        sqlite_select_Query += " AND route LIKE '%" + filtrer_route + "%'"
+    
+    sqlite_select_Query += ";"
+    
     #execution de la requéte
     cursor.execute(sqlite_select_Query)
     #on place tout les enregistrements dans une variable record
@@ -130,7 +155,8 @@ def AffichezListePokemon():
     for row in record:
         tree.insert('', 'end', iid=str(row[0]), text=str(row[1]),
                      values=(str(row[2]),
-                             str(row[3])))
+                             str(row[3]),
+                             str(row[4])))
 
 
     #on ferme le curseur
@@ -323,17 +349,32 @@ Partie recherche et affichage du tableau
 frame_search = Frame(fenetre, bg=bg_color, height=60)
 frame_search.place(x=0, y=470, width=1200, height=60)
 
-#création d'une variable StringVar
+#création des variables StringVar pour les filtres
 var_texte_recherche = StringVar()
+var_filtre_hp = StringVar()
+var_filtre_route = StringVar()
+
 label_recherche_liste=TTKLabel(frame_search, text="Filtrer par nom/type:", style='Normal.TLabel')
 label_recherche_liste.place(x=20, y=18, width=200, height=25)
 
 textBoxRecherche = Entry(frame_search, textvariable=var_texte_recherche, width=30, font=('Verdana', 12), bg=screen_bg, fg='black')
-textBoxRecherche.place(x=230, y=15, width=300, height=30)
+textBoxRecherche.place(x=230, y=15, width=200, height=30)
+
+label_filtre_hp=TTKLabel(frame_search, text="HP min:", style='Normal.TLabel')
+label_filtre_hp.place(x=440, y=18, width=60, height=25)
+
+textBoxFiltreHP = Entry(frame_search, textvariable=var_filtre_hp, width=5, font=('Verdana', 12), bg=screen_bg, fg='black')
+textBoxFiltreHP.place(x=505, y=15, width=60, height=30)
+
+label_filtre_route=TTKLabel(frame_search, text="Route:", style='Normal.TLabel')
+label_filtre_route.place(x=580, y=18, width=60, height=25)
+
+textBoxFiltreRoute = Entry(frame_search, textvariable=var_filtre_route, width=10, font=('Verdana', 12), bg=screen_bg, fg='black')
+textBoxFiltreRoute.place(x=645, y=15, width=100, height=30)
 
 #bouton de recherche
 bouton_affichez_pokemon=TTKButton(frame_search, text="Filtrer liste", command=AffichezListePokemon)
-bouton_affichez_pokemon.place(x=550, y=14, width=150, height=32)
+bouton_affichez_pokemon.place(x=760, y=14, width=150, height=32)
 
 
 # Frame container pour le tableau avec bordure noire
@@ -341,16 +382,18 @@ frame_tree_container = Frame(fenetre, bg=screen_border, bd=2)
 frame_tree_container.place(x=20, y=540, width=1160, height=340)
 
 #création de la grille d'affichage (tableau)
-tree = Treeview(frame_tree_container, columns=('HP', 'Type'), height=15)
+tree = Treeview(frame_tree_container, columns=('HP', 'Route', 'Type'), height=15)
  
  # Set the heading (Attribute Names)
 tree.heading('#0', text='Pokemon')
 tree.heading('#1', text='HP')
-tree.heading('#2', text='Type')
+tree.heading('#2', text='Route')
+tree.heading('#3', text='Type')
 # Specify attributes of the columns (We want to stretch it!)
-tree.column('#0', width=400, stretch=YES)
-tree.column('#1', width=150, stretch=YES, anchor='center')
-tree.column('#2', width=300, stretch=YES, anchor='center')
+tree.column('#0', width=350, stretch=YES)
+tree.column('#1', width=100, stretch=YES, anchor='center')
+tree.column('#2', width=150, stretch=YES, anchor='center')
+tree.column('#3', width=250, stretch=YES, anchor='center')
 
 # Ajout d'une scrollbar
 scrollbar = Scrollbar(frame_tree_container, orient="vertical", command=tree.yview)
