@@ -31,12 +31,6 @@ L’application permet de **consulter, rechercher et filtrer des Pokémon** dans
 - **Filtrage avancé** : Recherche dynamique par **nom** ou **type** dans le tableau d’affichage.  
 - **Affichage d’images** : Visualisation des sprites pour illustrer les fiches.  
 
-### 🔸 Améliorations possibles (bonus)
-- Recherche par caractéristiques spécifiques (ex. Pokémon avec plus de 100 en attaque).  
-- Ajout de nouveaux Pokémon ou dresseurs via un formulaire.  
-- Simulation de combats entre deux Pokémon selon leurs stats.  
-- Gestion des Pokémon possédés par les dresseurs (inventaire).  
-
 ---
 
 ## Structure de la base de données
@@ -66,6 +60,8 @@ La base relationnelle comporte 4 tables principales :
 ```bash
 python programme.py
 ```
+ou cliquer sur `lanceur.bat`
+
 ---
 
 ## 📂 Structure du Projet
@@ -86,6 +82,7 @@ Voici l'organisation exacte des fichiers du dépôt :
 ## 📜 Licence
 
 Ce projet est sous licence [MIT](LICENSE). Consultez le fichier `LICENSE` pour plus de détails.
+
 
 
 
