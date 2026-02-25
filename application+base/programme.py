@@ -9,7 +9,8 @@ import os
 def connexion():
     try:
         #connexion à la bdd
-        sqliteConnection = sqlite3.connect('pokedex.db')
+        db_path = os.path.join(os.path.dirname(__file__), 'pokedex.db')
+        sqliteConnection = sqlite3.connect(db_path)
         return sqliteConnection
     except sqlite3.Error as error:
         print("Error while connecting to sqlite", error)
