@@ -79,9 +79,14 @@ Voici l'organisation exacte des fichiers du dépôt :
     └── 📁 images/           # Sprites des Pokémon (ex: Pikachu.gif) + logo
 ```
 
+## 🖼️ Images
+
+Les [images](https://www.reddit.com/r/pokemon/comments/wx1qxp/all_officialsugimori_pokemon_art_collection_zip/) sont issues de la license pokemon.
+
 ## 📜 Licence
 
 Ce projet est sous licence [MIT](LICENSE). Consultez le fichier `LICENSE` pour plus de détails.
+
 
 
 
